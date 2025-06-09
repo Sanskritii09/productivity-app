@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Ensure inner containers exist before rendering
+  document.getElementById('pomodoro-section').innerHTML = `
+    <h2>Pomodoro Timer</h2>
+    <div id="pomodoro-timer"></div>
+    <div id="pomodoro-controls"></div>
+    <div id="pomodoro-settings"></div>
+  `;
+  document.getElementById('taskboard-section').innerHTML = `
+    <h2>Task Board</h2>
+    <div id="kanban-board"></div>
+    <div id="task-filters"></div>
+  `;
+  document.getElementById('analytics-section').innerHTML = `
+    <h2>Productivity Analytics</h2>
+    <div id="analytics-dashboard"></div>
+  `;
+
   // --- Simple Login/Signup System ---
   let user = JSON.parse(localStorage.getItem('user') || 'null');
   function renderAuth() {
