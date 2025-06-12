@@ -71,12 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const dash = circumference * percent;
     const dashArray = `${dash} ${circumference - dash}`;
     document.getElementById('pomodoro-timer').innerHTML = `
-      <div class="pomodoro-circle">
-        <svg class="pomodoro-svg" width="140" height="140">
-          <circle class="pomodoro-bg" cx="70" cy="70" r="65" fill="none" stroke-width="10" />
-          <circle class="pomodoro-fg" cx="70" cy="70" r="65" fill="none" stroke-width="10" stroke-dasharray="${dashArray}" />
-        </svg>
-        <div class="pomodoro-time">${formatTime(timerState.remaining)}</div>
+      <div class="flex flex-col items-center">
+        <div class="relative mb-4">
+          <svg class="w-36 h-36" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="65" fill="none" stroke="#FFD700" stroke-width="10"/>
+            <circle class="pomodoro-fg" cx="70" cy="70" r="65" fill="none" stroke-width="10" stroke-dasharray="${dashArray}" />
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-sunriseAccent night:text-nightAccent">${formatTime(timerState.remaining)}</div>
+        </div>
       </div>
     `;
     // Controls
@@ -413,4 +415,14 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAnalytics();
   // Re-render analytics on storage change
   window.addEventListener('storage', renderAnalytics);
+
+  const themeBtn = document.getElementById('theme-toggle');
+  function setTheme(theme) {
+    document.body.classList.remove('sunrise', 'night');
+    document.body.classList.add(theme);
+    themeBtn.textContent = theme === 'night' ? 'Switch to Sunrise' : 'Switch to Night';
+    localStorage.setItem('theme', theme);
+  }
+  themeBtn.onclick = () => setTheme(document.body.classList.contains('sunrise') ? 'night' : 'sunrise');
+  setTheme(localStorage.getItem('theme') || (new Date().getHours() >= 18 ? 'night' : 'sunrise'));
 }); 

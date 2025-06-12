@@ -6,14 +6,22 @@
   <title>Productivity App</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="sunrise transition-bg min-h-screen">
   <div id="app-container">
-    <header>
+    <header class="flex justify-between items-center flex-wrap mb-8">
       <h1>Productivity App</h1>
       <div id="user-auth"></div>
+      <button id="theme-toggle" class="px-4 py-2 rounded bg-sunriseAccent text-gray-800 font-bold shadow transition">
+        Switch to Night
+      </button>
     </header>
-    <main>
-      <section id="pomodoro-section"></section>
+    <main class="flex flex-col md:flex-row gap-8">
+      <section id="pomodoro-section" class="flex flex-col items-center justify-center bg-sunrise1/80 night:bg-night1/80 rounded-2xl p-6 shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4 text-sunriseAccent night:text-nightAccent">Pomodoro Timer</h2>
+        <div class="flex flex-col items-center w-full">
+          <!-- Timer Circle and Controls go here -->
+        </div>
+      </section>
       <section id="taskboard-section"></section>
       <section id="analytics-section"></section>
     </main>

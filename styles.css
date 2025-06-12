@@ -5,6 +5,17 @@ body {
   margin: 0;
   padding: 0;
 }
+body.night {
+  background: linear-gradient(to bottom right, #1E1E2F, #000);
+  color: #fff;
+}
+body.sunrise {
+  background: linear-gradient(to bottom right, #FFF8DC, #FFA500);
+  color: #333;
+}
+.transition-bg {
+  transition: background 0.5s, color 0.5s;
+}
 #app-container {
   max-width: 1200px;
   margin: 32px auto;
