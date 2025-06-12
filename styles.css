@@ -6,11 +6,11 @@ body {
   padding: 0;
 }
 body.night {
-  background: linear-gradient(to bottom right, #1E1E2F, #000);
+  background: linear-gradient(135deg, #0F172A 0%, #000 100%);
   color: #fff;
 }
 body.sunrise {
-  background: linear-gradient(to bottom right, #FFF8DC, #FFA500);
+  background: linear-gradient(135deg, #FFD580 0%, #FFE5B4 100%);
   color: #333;
 }
 .transition-bg {
@@ -43,25 +43,26 @@ main {
   gap: 32px;
 }
 #pomodoro-section, #taskboard-section, #analytics-section {
-  background: #f3f0ff;
+  background: #fff8e1;
   border-radius: 14px;
   padding: 28px 24px;
-  box-shadow: 0 2px 12px rgba(123,108,246,0.07);
+  box-shadow: 0 4px 24px 0 #0001;
   flex: 1;
   min-width: 320px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  transition: background 0.5s, color 0.5s;
 }
-#pomodoro-section {
-  background: #ffe7e7;
+body.night #pomodoro-section, body.night #taskboard-section, body.night #analytics-section {
+  background: #1e293b;
+  color: #fff;
+  box-shadow: 0 4px 24px 0 #0006;
 }
-#taskboard-section {
-  background: #e7f7ff;
-}
-#analytics-section {
-  background: #e7ffe7;
+body.sunrise #pomodoro-section, body.sunrise #taskboard-section, body.sunrise #analytics-section {
+  background: #fff8e1;
+  color: #333;
 }
 /* Soft transitions */
 * {
@@ -122,6 +123,18 @@ main {
 .pomodoro-btn.active, .pomodoro-btn:hover {
   background: #7b6cf6;
   color: #fff;
+}
+body.sunrise .pomodoro-btn, body.sunrise .pomodoro-btn:hover {
+  background: #FFD580;
+  color: #333;
+}
+body.night .pomodoro-btn, body.night .pomodoro-btn:hover {
+  background: #334155;
+  color: #fff;
+}
+#pomodoro-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 8px #0002;
 }
 #pomodoro-settings {
   display: flex;
@@ -232,6 +245,18 @@ main {
   background: #7b6cf6;
   color: #fff;
 }
+body.sunrise .kanban-btn, body.sunrise .kanban-btn:hover {
+  background: #FFD580;
+  color: #333;
+}
+body.night .kanban-btn, body.night .kanban-btn:hover {
+  background: #334155;
+  color: #fff;
+}
+.kanban-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 8px #0002;
+}
 .kanban-add-task {
   margin-top: 8px;
   display: flex;
@@ -333,4 +358,38 @@ main {
 }
 .auth-form button:hover {
   background: #5a4ad1;
+}
+body.sunrise .auth-form button, body.sunrise .auth-form button:hover {
+  background: #FFD580;
+  color: #333;
+}
+body.night .auth-form button, body.night .auth-form button:hover {
+  background: #334155;
+  color: #fff;
+}
+.auth-form button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 8px #0002;
+}
+#theme-toggle {
+  background: #7b6cf6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+body.sunrise #theme-toggle, body.sunrise #theme-toggle:hover {
+  background: #FFD580;
+  color: #333;
+}
+body.night #theme-toggle, body.night #theme-toggle:hover {
+  background: #334155;
+  color: #fff;
+}
+#theme-toggle:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 8px #0002;
 } 

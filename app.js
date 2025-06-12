@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dash = circumference * percent;
     const dashArray = `${dash} ${circumference - dash}`;
     document.getElementById('pomodoro-timer').innerHTML = `
-      <div class="flex flex-col items-center">
-        <div class="relative mb-4">
+      <div class="flex flex-col items-center justify-center w-full">
+        <div class="relative flex items-center justify-center w-36 h-36 mx-auto">
           <svg class="w-36 h-36" viewBox="0 0 140 140">
-            <circle cx="70" cy="70" r="65" fill="none" stroke="#FFD700" stroke-width="10"/>
+            <circle class="pomodoro-bg" cx="70" cy="70" r="65" fill="none" stroke-width="10" />
             <circle class="pomodoro-fg" cx="70" cy="70" r="65" fill="none" stroke-width="10" stroke-dasharray="${dashArray}" />
           </svg>
-          <div class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-sunriseAccent night:text-nightAccent">${formatTime(timerState.remaining)}</div>
+          <div class="absolute inset-0 flex items-center justify-center text-3xl font-bold">${formatTime(timerState.remaining)}</div>
         </div>
       </div>
     `;
